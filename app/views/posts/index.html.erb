@@ -1,2 +1,8 @@
-<h1>Posts#index</h1>
-
+<div class="container">
+	<div class="row">
+		<% @posts.each do |post| %>
+			<h3><%= link_to post.title, post %></h3>
+		<% end %>
+		<%= link_to "New Post", new_post_path %>
+	</div>
+</div>
