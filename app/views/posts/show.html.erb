@@ -1,7 +1,13 @@
-<h1>Posts</h1>
-<h3><%= @post.title %></h3>
-<small><%= @post.link %></small>
-<p><%= @post.description %></p>
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Back", root_path %>
-<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?" } %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h3><%= @post.title %></h3>
+			<small><%= @post.link %></small>
+			<p><%= @post.description %></p>
+			<p><%= @post.user.name %></p>
+			<%= link_to "Edit", edit_post_path(@post) %>
+			<%= link_to "Back", root_path %>
+			<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?" } %>
+		</div>
+	</div>
+</div>

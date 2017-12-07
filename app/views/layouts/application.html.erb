@@ -14,6 +14,7 @@
           <div class="pull-right float-right">
             <ul>
               <% if user_signed_in? %>
+              <button class="btn"><%= link_to "Account", edit_user_registration_path %></button>              
               <button class="btn"><%= link_to "Sign out", destroy_user_session_path, method: :delete%></button>
               <% else %>  
               <button class="btn"><%= link_to "Sign In", new_user_session_path %></button>
