@@ -2,12 +2,17 @@
 	<div class="row">
 		<div class="col-md-6">
 			<h3><%= @post.title %></h3>
+			<div><%= image_tag @post.image.url(:medium) %></div>
 			<small><%= @post.link %></small>
-			<p><%= @post.description %></p>
-			<p><%= @post.user.name %></p>
-			<%= link_to "Edit", edit_post_path(@post) %>
-			<%= link_to "Back", root_path %>
-			<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?" } %>
+			
 		</div>
+
 	</div>
+	<p><%= @post.description %></p>
+			<p><%= @post.user.name %></p>
+			<div class="btn-group">
+			<%= link_to "Edit", edit_post_path(@post) , class: "btn btn-default" %>
+			<%= link_to "Back", root_path , class: "btn btn-default" %>
+			<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?" } , class: "btn btn-danger" %>
+			</div>
 </div>
