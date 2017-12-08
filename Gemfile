@@ -19,6 +19,7 @@ gem 'devise', '~> 4.3'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'paperclip', '~> 5.1'
+gem 'acts_as_votable', '~> 0.11.1'
 
 
 group :development, :test do
