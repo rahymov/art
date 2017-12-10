@@ -1,11 +1,34 @@
 <div class="container">
-	<div class="row">
-		<% @posts.each do |post| %>
-			<%= link_to (image_tag post.image.url(:small)), post %>
-			<h3><%= link_to post.title, post %></h3>
-			<p><%= post.comments.count %> Commments</p>
-			<p><%= pluralize(post.get_likes.size, "Like") %></p>
+		<% if user_signed_in? %>
+			<p id="intro">Hello <%= current_user.name %><br>
+				<span>Share your Inspiraation and see what's inspiring others.</span>
+			</p>
+			<% else %>
+				<p id="intro">What is your insp?<br>
+					<span>Share your Inspiraation and see what's inspiring others.</span>
+				</p>
 		<% end %>
-		<%= link_to "New Post", new_post_path %>
-	</div>
+	<div id="posts">
+		<% @posts.each do |post| %>
+		<div class="post">
+			<div class="post_image">
+				<%= link_to (image_tag post.image.url(:small)), post %>
+			</div>
+			<div class="post_content">
+				<div class="title">
+					<h2><%= link_to post.title, post %></h2>
+				</div>
+				<div class="data clearfix">
+					<p class="username">
+						Shared by <%= post.user.name%>
+					</p>
+					<p class="buttons">
+						<span><i class="fa fa-comments-o"><%= post.comments.count %></i></span> | 
+						<span><i class="fa fa-thumbs-o-up"><%= post.get_likes.size %></i></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<% end %>	
+	</div>		
 </div>

@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">		
-		<h3><%= @post.title %></h3>
+		<h1><%= @post.title %></h1>
+		<p class="username">Shared by <%= @post.user.name %> about <%= time_ago_in_words(@post.created_at)%></p>
 		<div><%= image_tag @post.image.url(:medium) %></div>
 		<small><%= @post.link %></small>
 	</div>
@@ -14,7 +15,7 @@
 		<h2 class="comment_count"><%= pluralize(@post.comments.count, "Comment") %></h2>
 		<% @comments.each do |comment| %>
 			<div class="comment">
-				<p class="username"><%= comment.user.name %></p>
+				<p class="username" id="username"><%= comment.user.name %></p>
 				<p class="content"><%= comment.content %></p>
 			</div>
 		<% end %>
